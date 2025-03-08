@@ -83,7 +83,7 @@ func (pc *GenerationConfig) UnmarshalYAML(value *yaml.Node) error {
 	}
 
 	if c.WebsiteURI == "" {
-		return fmt.Errorf("missing or empty website uri")
+		return fmt.Errorf("missing or empty website URI")
 	}
 
 	if c.Maintainer == "" {

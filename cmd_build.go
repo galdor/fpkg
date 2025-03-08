@@ -28,7 +28,7 @@ func cmdBuild(p *program.Program) {
 	configPath := p.OptionValue("config")
 	config := DefaultGenerationConfig()
 	if err := config.LoadFile(configPath); err != nil {
-		p.Fatal("cannot load configuration file from %s: %v", configPath, err)
+		p.Fatal("cannot load configuration file from %q: %v", configPath, err)
 	}
 
 	if p.IsOptionSet("version") {
