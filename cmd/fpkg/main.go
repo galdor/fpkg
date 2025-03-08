@@ -1,14 +1,18 @@
 package main
 
 import (
-	"fmt"
-
 	"go.n16f.net/program"
 )
 
 var buildId string
+var version string
 
 func main() {
+	version = buildId
+	if version[0] == 'v' {
+		version = version[1:]
+	}
+
 	var c *program.Command
 
 	p := program.NewProgram("fpkg",
@@ -30,8 +34,4 @@ func main() {
 	p.ParseCommandLine()
 
 	p.Run()
-}
-
-func cmdVersion(p *program.Program) {
-	fmt.Println(buildId)
 }

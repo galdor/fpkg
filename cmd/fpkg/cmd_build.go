@@ -72,7 +72,7 @@ func generateManifest(config *GenerationConfig, dirPath string) (*Manifest, erro
 	m := NewManifest()
 
 	m.Annotations = map[string]string{
-		"built_by":        "fpkg-" + buildId,
+		"built_by":        "fpkg-" + version,
 		"build_timestamp": now.UTC().Format(time.RFC3339),
 	}
 
