@@ -1,8 +1,7 @@
-# fpkg
+# Fpkg
 Fpkg is a small program to interact with FreeBSD packages. While the official
-[`pkg` program](https://github.com/freebsd/pkg) works perfectly well for
-package management, it is not as practical to build packages. Among other
-things:
+[`pkg` program](https://github.com/freebsd/pkg) works perfectly well for package
+management, it is not as practical to build packages. Among other things:
 
 - It forces the user to manually build the file and directory list and their
   checksum and permissions.
@@ -14,12 +13,12 @@ things:
 
 ## Installation
 Fpkg is available for Linux/amd64 as a single binary file. You can [download
-it](https://github.com/exograd/fpkg/releases/latest/download/fpkg) directly
-from the latest GitHub release. You also build it yourself by running `make
+it](https://github.com/galdor/fpkg/releases/latest/download/fpkg) directly from
+the latest GitHub release. You can also build it yourself by running `make
 build`. Fpkg should run on all platforms supported by the Go compiler.
 
 ## Package building
-Fpkg uses a simple YAML configuration file describing the package to build.
+Fpkg uses a YAML configuration file describing the package to build.
 
 Example:
 ```yaml
@@ -42,17 +41,17 @@ directories:
     group: "www"
 ```
 
-You can then run fpkg:
+You can then run Fpkg:
 ```
 fpkg build -c example.yaml example/
 ```
 
-Where `example/` is the directory containing the set of files to include in
-the package.
+Where `example/` is the directory containing the set of files to include in the
+package.
 
-Fpkg automatically builds the file and directory index, including the
-checksum, permissions, and the owner and group set in the manifest.
+Fpkg automatically builds the file and directory index, including the checksum,
+permissions, and the owner and group set in the manifest.
 
-The path of the resulting `.pkg` file is printed on `stdout`; this way a
-script running fpkg can easily find and copy the package archive to a remote
+The path of the resulting `.pkg` file is printed on `stdout`; this way a script
+running fpkg can easily find and copy the package archive to a remote
 repository.
