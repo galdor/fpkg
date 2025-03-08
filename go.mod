@@ -1,8 +1,6 @@
 module github.com/galdor/fpkg
 
-go 1.23.2
-
-toolchain go1.24.0
+go 1.24.0
 
 require (
 	go.n16f.net/program v0.0.0-20241208190041-4d0013a2857b

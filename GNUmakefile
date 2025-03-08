@@ -9,7 +9,9 @@ all: build
 
 build: FORCE
 	CGO_ENABLED=0 \
-	go build -o $(BIN_DIR) -ldflags="-X 'main.buildId=$(BUILD_ID)'" .
+	go build -o $(BIN_DIR) \
+	  -ldflags="-X 'main.buildId=$(BUILD_ID)'" \
+	  github.com/galdor/fpkg/cmd/fpkg
 
 check: vet
 
