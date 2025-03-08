@@ -76,6 +76,7 @@ func generateManifest(config *GenerationConfig, dirPath string) (*Manifest, erro
 	m.WWW = config.WebsiteURI
 	m.Maintainer = config.Maintainer
 	m.Licenses = slices.Clone(config.Licenses)
+	m.Categories = slices.Clone(config.Categories)
 
 	if abi := config.ABI; abi != "" {
 		m.ABI = abi

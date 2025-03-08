@@ -17,6 +17,7 @@ type GenerationConfig struct {
 	WebsiteURI       string                       `yaml:"website_uri"`
 	Maintainer       string                       `yaml:"maintainer"`
 	Licenses         []string                     `yaml:"licenses,omitempty"`
+	Categories       []string                     `yaml:"categories,omitempty"`
 	Origin           string                       `yaml:"origin,omitempty"`
 	ABI              string                       `yaml:"abi,omitempty"`
 	Dependencies     []GenerationConfigDependency `yaml:"dependencies,omitempty"`
