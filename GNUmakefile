@@ -1,17 +1,21 @@
+BIN_DIR = $(CURDIR)
+
 all: build
 
 build: FORCE
-	GOBIN=$(CURDIR) CGO_ENABLED=0 go install ./...
+	CGO_ENABLED=0 GOBIN=$(BIN_DIR) go install ./...
 
-test:
-	go test -race -count 1 ./...
+check: vet
 
 vet:
 	go vet ./...
+
+test:
+	go test -race -count 1 ./...
 
 clean:
 	$(RM) $(wildcard $(BIN_DIR)/*)
 
 FORCE:
 
-.PHONY: all build test vet
+.PHONY: all build check vet test
