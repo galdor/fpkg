@@ -15,6 +15,7 @@ import (
 
 type Manifest struct {
 	ABI         string              `json:"abi"`
+	Annotations map[string]string   `json:"annotations,omitempty"`
 	Categories  []string            `json:"categories,omitempty"`
 	Comment     string              `json:"comment"`
 	Deps        ManifestDeps        `json:"deps,omitempty"`

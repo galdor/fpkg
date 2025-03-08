@@ -67,7 +67,14 @@ func cmdBuild(p *program.Program) {
 }
 
 func generateManifest(config *GenerationConfig, dirPath string) (*Manifest, error) {
+	now := time.Now()
+
 	m := NewManifest()
+
+	m.Annotations = map[string]string{
+		"built_by":        "fpkg-" + buildId,
+		"build_timestamp": now.UTC().Format(time.RFC3339),
+	}
 
 	m.Name = config.Name
 	m.Version = config.Version
@@ -199,7 +206,6 @@ func generateManifest(config *GenerationConfig, dirPath string) (*Manifest, erro
 		return nil, err
 	}
 
-	// Scripts
 	preInstallData, err := generatePreInstall(config)
 	if err != nil {
 		return nil, fmt.Errorf("cannot generate pre-install script: %w", err)
