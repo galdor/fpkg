@@ -14,21 +14,22 @@ import (
 // See https://github.com/freebsd/pkg/blob/master/libpkg/pkg_manifest.c
 
 type Manifest struct {
-	Name        string              `json:"name"`
-	Version     string              `json:"version"`
-	Comment     string              `json:"comment"`
-	Desc        string              `json:"desc"`
-	Origin      string              `json:"origin"`
-	WWW         string              `json:"www,omitempty"`
-	Maintainer  string              `json:"maintainer,omitempty"`
 	Arch        string              `json:"arch"`
+	Comment     string              `json:"comment"`
 	Deps        ManifestDeps        `json:"deps,omitempty"`
-	Users       []string            `json:"users,omitempty"`
-	Groups      []string            `json:"groups,omitempty"`
-	Prefix      string              `json:"prefix,omitempty"`
-	Files       ManifestFiles       `json:"files,omitempty"`
+	Desc        string              `json:"desc"`
 	Directories ManifestDirectories `json:"directories,omitempty"`
+	Files       ManifestFiles       `json:"files,omitempty"`
+	Groups      []string            `json:"groups,omitempty"`
+	Licenses    []string            `json:"licenses,omitempty"`
+	Maintainer  string              `json:"maintainer,omitempty"`
+	Name        string              `json:"name"`
+	Origin      string              `json:"origin"`
+	Prefix      string              `json:"prefix,omitempty"`
 	Scripts     map[string]string   `json:"scripts"`
+	Users       []string            `json:"users,omitempty"`
+	Version     string              `json:"version"`
+	WWW         string              `json:"www,omitempty"`
 }
 
 type ManifestDep struct {

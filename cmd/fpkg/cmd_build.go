@@ -11,6 +11,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
+	"slices"
 	"sort"
 	"strconv"
 	"time"
@@ -74,6 +75,7 @@ func generateManifest(config *GenerationConfig, dirPath string) (*Manifest, erro
 	m.Desc = config.LongDescription
 	m.WWW = config.WebsiteURI
 	m.Maintainer = config.Maintainer
+	m.Licenses = slices.Clone(config.Licenses)
 
 	if arch := config.Architecture; arch != "" {
 		m.Arch = config.Architecture
