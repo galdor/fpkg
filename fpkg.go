@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/exograd/go-program"
+	"go.n16f.net/program"
 )
 
 func main() {

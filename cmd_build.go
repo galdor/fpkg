@@ -16,7 +16,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/exograd/go-program"
+	"go.n16f.net/program"
 )
 
 func cmdBuild(p *program.Program) {
