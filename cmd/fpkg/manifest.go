@@ -14,7 +14,7 @@ import (
 // See https://github.com/freebsd/pkg/blob/master/libpkg/pkg_manifest.c
 
 type Manifest struct {
-	Arch        string              `json:"arch"`
+	ABI         string              `json:"abi"`
 	Comment     string              `json:"comment"`
 	Deps        ManifestDeps        `json:"deps,omitempty"`
 	Desc        string              `json:"desc"`

@@ -77,12 +77,10 @@ func generateManifest(config *GenerationConfig, dirPath string) (*Manifest, erro
 	m.Maintainer = config.Maintainer
 	m.Licenses = slices.Clone(config.Licenses)
 
-	if arch := config.Architecture; arch != "" {
-		m.Arch = config.Architecture
+	if abi := config.ABI; abi != "" {
+		m.ABI = abi
 	} else {
-		// "pkg add" will segfault if there is no arch field. See
-		// https://github.com/freebsd/pkg/issues/2070.
-		m.Arch = "*"
+		m.ABI = "*"
 	}
 
 	if longDesc := config.LongDescription; longDesc != "" {

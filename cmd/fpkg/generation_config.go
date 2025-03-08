@@ -18,7 +18,7 @@ type GenerationConfig struct {
 	Maintainer       string                       `yaml:"maintainer"`
 	Licenses         []string                     `yaml:"licenses,omitempty"`
 	Origin           string                       `yaml:"origin,omitempty"`
-	Architecture     string                       `yaml:"architecture,omitempty"`
+	ABI              string                       `yaml:"abi,omitempty"`
 	Dependencies     []GenerationConfigDependency `yaml:"dependencies,omitempty"`
 	Users            []GenerationConfigUser       `yaml:"users,omitempty"`
 	Groups           []GenerationConfigGroup      `yaml:"groups,omitempty"`
