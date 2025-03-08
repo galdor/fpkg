@@ -20,6 +20,8 @@ import (
 )
 
 func cmdBuild(p *program.Program) {
+	outputPath := p.OptionValue("output")
+
 	dirPath := p.ArgumentValue("directory")
 	if dirPath == "" {
 		dirPath = "."
@@ -44,7 +46,7 @@ func cmdBuild(p *program.Program) {
 		p.Fatal("cannot generate manifest: %v", err)
 	}
 
-	archivePath := manifest.PackageFilename()
+	archivePath := path.Join(outputPath, manifest.PackageFilename())
 
 	flags := os.O_WRONLY | os.O_CREATE | os.O_TRUNC
 	archive, err := os.OpenFile(archivePath, flags, 0644)

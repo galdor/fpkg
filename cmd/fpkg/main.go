@@ -19,6 +19,8 @@ func main() {
 		"the directory containing files to package")
 	c.AddOption("c", "config", "path", "fpkg.yaml",
 		"the path of the configuration file")
+	c.AddOption("o", "output", "path", ".",
+		"the path of the output directory")
 	c.AddOption("v", "version", "string", "",
 		"set the version of the package")
 
