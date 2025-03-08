@@ -1,9 +1,15 @@
+BUILD_ID = $(shell git describe --tags HEAD)
+ifndef BUILD_ID
+$(error Cannot identify build id from Git repository data)
+endif
+
 BIN_DIR = $(CURDIR)
 
 all: build
 
 build: FORCE
-	CGO_ENABLED=0 GOBIN=$(BIN_DIR) go install ./...
+	CGO_ENABLED=0 \
+	go build -o $(BIN_DIR) -ldflags="-X 'main.buildId=$(BUILD_ID)'" .
 
 check: vet
 
