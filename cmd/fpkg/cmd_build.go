@@ -69,6 +69,11 @@ func cmdBuild(p *program.Program) {
 func generateManifest(config *GenerationConfig, dirPath string) (*Manifest, error) {
 	now := time.Now()
 
+	version, err := Version(buildId)
+	if err != nil {
+		return nil, err
+	}
+
 	m := NewManifest()
 
 	m.Annotations = map[string]string{
@@ -149,7 +154,7 @@ func generateManifest(config *GenerationConfig, dirPath string) (*Manifest, erro
 		m.Directories[dir.Path] = mdir
 	}
 
-	err := WalkDir(dirPath, func(relPath string, info fs.FileInfo) error {
+	err = WalkDir(dirPath, func(relPath string, info fs.FileInfo) error {
 		fullPath := path.Join(dirPath, relPath)
 
 		if !info.Mode().IsRegular() {

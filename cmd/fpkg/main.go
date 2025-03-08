@@ -5,14 +5,8 @@ import (
 )
 
 var buildId string
-var version string
 
 func main() {
-	version = buildId
-	if version[0] == 'v' {
-		version = version[1:]
-	}
-
 	var c *program.Command
 
 	p := program.NewProgram("fpkg",
